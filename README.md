@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SimpleZH
 
-## Getting Started
+简繁中文转换工作台 MVP。当前版本支持纯文本输入、简体/繁体/台湾正体/香港繁体转换、基础格式保护、自定义词汇表、复制和 TXT 下载。
 
-First, run the development server:
+## 本地开发
+
+环境要求：Node.js 20+、pnpm 9+
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000)。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 常用命令
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm lint
+pnpm build
+pnpm start
+```
 
-## Learn More
+## 当前实现
 
-To learn more about Next.js, take a look at the following resources:
+- `opencc-js` 在浏览器端执行确定性简繁转换。
+- 支持简体、台湾正体、香港繁体之间的主要转换路径。
+- 转换前保护 Markdown 代码块、行内代码、HTML 标签和 URL。
+- 支持工作区词汇表，词条会覆盖默认转换结果。
+- 支持 `Ctrl/Cmd + Enter` 开始转换。
+- 转换结果支持复制和 TXT 下载。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+当前词汇表和编辑内容只保存在页面内存中，登录、历史记录、额度和数据库属于后续 SaaS 阶段。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 文档
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [MVP 产品规格](docs/mvp-prd.md)
